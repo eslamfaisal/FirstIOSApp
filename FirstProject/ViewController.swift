@@ -21,19 +21,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+     updateImagesRundomly()
+
     }
 
     @IBAction func actinBtn(_ sender: UIButton) {
         
+        updateImagesRundomly()
+        
+    }
+
+    func updateImagesRundomly()  {
         randomDiceIndex1 = Int(arc4random_uniform(6))
         randomDiceIndex2 = Int(arc4random_uniform(6))
         
-        print(randomDiceIndex1,randomDiceIndex2)
         
         firtBall.image = UIImage(named: diceeImages[randomDiceIndex1])
         secondBall.image = UIImage(named: diceeImages[randomDiceIndex2])
         
     }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        print(randomDiceIndex1,randomDiceIndex2)
 
+    }
 }
 
